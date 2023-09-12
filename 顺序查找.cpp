@@ -7,9 +7,9 @@ typedef struct {
 }SSTable;
 int search_Seq(SSTable& ST, int key)
 {
-	ST.elem[0] = key;
+	ST.elem[0] = key;//哨兵，可以提升一倍的比较效率；
 	int i;
-	for (i = ST.TableLen; ST.elem[i] != key; i--);
+	for (i = ST.TableLen; ST.elem[i] != key; i--);//相等时停止比对；
 	printf("ret=%d\n", i);
 	return i;
 }
